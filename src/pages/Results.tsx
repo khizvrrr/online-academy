@@ -3,6 +3,7 @@ import { AcademicNavbar } from '@/components/ui/academic-navbar'
 import { AcademicFooter } from '@/components/ui/academic-footer'
 import { PageHeader } from '@/components/ui/page-header'
 import { SectionHeader } from '@/components/ui/section-header'
+import { ACADEMY_CONFIG } from '@/data/mockAcademyData'
 
 export default function Results() {
   return (
@@ -21,7 +22,7 @@ export default function Results() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <SectionHeader title="Academic Achievements" />
         <p className="mb-8 text-muted-foreground max-w-3xl">
-          Our students consistently achieve outstanding results in Cambridge and Edexcel examinations. 
+          Our students consistently achieve outstanding results in Cambridge and Edexcel examinations.
           The following statistics reflect our commitment to academic excellence.
         </p>
 
@@ -30,18 +31,22 @@ export default function Results() {
           <div className="rounded-lg border bg-primary/5 p-6 text-center">
             <p className="text-4xl font-bold text-primary">85%</p>
             <p className="mt-2 text-sm text-muted-foreground">A*-A Grades</p>
+            <p className="text-xs text-muted-foreground mt-1">[Mock data - placeholder]</p>
           </div>
           <div className="rounded-lg border bg-primary/5 p-6 text-center">
             <p className="text-4xl font-bold text-primary">92%</p>
             <p className="mt-2 text-sm text-muted-foreground">Pass Rate</p>
+            <p className="text-xs text-muted-foreground mt-1">[Mock data - placeholder]</p>
           </div>
           <div className="rounded-lg border bg-primary/5 p-6 text-center">
             <p className="text-4xl font-bold text-primary">100%</p>
             <p className="mt-2 text-sm text-muted-foreground">Student Satisfaction</p>
+            <p className="text-xs text-muted-foreground mt-1">[Mock data - placeholder]</p>
           </div>
           <div className="rounded-lg border bg-primary/5 p-6 text-center">
             <p className="text-4xl font-bold text-primary">15+</p>
             <p className="mt-2 text-sm text-muted-foreground">Years Experience</p>
+            <p className="text-xs text-muted-foreground mt-1">[Mock data - placeholder]</p>
           </div>
         </div>
 
@@ -60,7 +65,7 @@ export default function Results() {
                 </div>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                [Testimonial {i} - Student feedback about their experience at Meridian Academy and their academic progress.]
+                [Testimonial {i} - Student feedback about their experience at {ACADEMY_CONFIG.name} and their academic progress.]
               </p>
             </div>
           ))}

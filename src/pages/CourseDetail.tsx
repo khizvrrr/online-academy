@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useParams } from 'react-router-dom'
 import { AcademicNavbar } from '@/components/ui/academic-navbar'
 import { AcademicFooter } from '@/components/ui/academic-footer'
 import { PageHeader } from '@/components/ui/page-header'
@@ -8,8 +9,8 @@ import { COURSES } from '@/data/mockAcademyData'
 import type { Course } from '@/types/academy'
 
 export default function CourseDetail() {
-  // In a real app, this would be derived from route params
-  const course = COURSES[0]
+  const { courseId } = useParams<{ courseId: string }>()
+  const course = COURSES.find((c) => c.id === courseId) || COURSES[0]
 
   return (
     <main className="min-h-screen bg-background">
