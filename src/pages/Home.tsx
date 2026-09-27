@@ -1,9 +1,10 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { AcademicNavbar } from '@/components/ui/academic-navbar'
 import { AcademicFooter } from '@/components/ui/academic-footer'
-import { PageHeader } from '@/components/ui/page-header'
 import { SectionHeader } from '@/components/ui/section-header'
 import { CourseCard } from '@/components/ui/course-card'
+import { Button } from '@/components/ui/button'
 import { ACADEMY_CONFIG, COURSES, HOW_IT_WORKS_STEPS, FAQS } from '@/data/mockAcademyData'
 
 export default function Home() {
@@ -12,57 +13,92 @@ export default function Home() {
       <AcademicNavbar />
 
       {/* Hero Section */}
-      <section className="py-20 md:py-32 lg:py-40 bg-gradient-to-b from-background via-[--background] to-gray-50">
+      <section className="relative overflow-hidden py-16 md:py-24 lg:py-32 bg-slate-50 border-b border-border/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-xs font-medium uppercase tracking-wider text-primary mb-3">Welcome to Meridian Academy</span>
-              <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 leading-none">
-                Master O & A-Level Excellence
-              </h2>
-              <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-                Comprehensive O & A-Level tuition with experienced academic faculty, structured syllabus guidance, and personalized mentoring for Cambridge and Edexcel examinations.
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold uppercase tracking-wider text-primary">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                {ACADEMY_CONFIG.name} • O & A-Level Programs
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+                Focused Academic Tuition for Cambridge & Edexcel
+              </h1>
+              
+              <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
+                Structured, syllabus-aligned preparation led by experienced academic faculty. Small cohort sizes, concept mastery, and disciplined exam past paper walkthroughs.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button size="lg" className="px-6 py-3">
-                  Browse Courses
+              
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Button size="lg" className="rounded-full px-7 shadow-sm" asChild>
+                  <Link to="/courses">Browse All Courses</Link>
                 </Button>
-                <Button variant="outline" size="lg" className="px-6 py-3">
-                  Apply Now
+                <Button variant="outline" size="lg" className="rounded-full px-7" asChild>
+                  <Link to="/apply">Submit Application</Link>
+                </Button>
+                <Button variant="ghost" size="lg" className="rounded-full px-5 text-slate-600 hover:text-primary" asChild>
+                  <Link to="/how-it-works">How It Works →</Link>
                 </Button>
               </div>
-            </div>
-            <div className="relative hidden lg:block">
-              {/* Hero banner placeholder */}
-              <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-gray-200">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-gray-100"></div>
-                <div className="absolute -top-6 -right-6 text-4xl font-bold text-primary">01</div>
-                <div className="absolute -bottom-6 -left-6 text-4xl font-bold text-primary">02</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Academy Introduction */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="About Meridian Academy" />
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                {ACADEMY_CONFIG.tagline}
-              </p>
-              <p className="mt-6 text-muted-foreground leading-relaxed">
-                {ACADEMY_CONFIG.teacherPhilosophy}
-              </p>
+              {/* Verified Features Pills */}
+              <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 border-t border-slate-200">
+                <div>
+                  <p className="text-xs uppercase font-medium text-slate-500">Cohort Size</p>
+                  <p className="text-sm font-semibold text-slate-900">Max 10–12 Students</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase font-medium text-slate-500">Curricula</p>
+                  <p className="text-sm font-semibold text-slate-900">CAIE & Pearson Edexcel</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase font-medium text-slate-500">Instruction Format</p>
+                  <p className="text-sm font-semibold text-slate-900">Interactive Live Online</p>
+                </div>
+              </div>
             </div>
-            <div className="relative">
-              {/* Teacher profile placeholder */}
-              <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-gray-200">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-gray-100"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-4xl font-bold text-primary">[TEACHER PHOTO]</span>
+
+            <div className="lg:col-span-5">
+              <div className="relative mx-auto max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-xl space-y-5">
+                <div className="flex items-center justify-between border-b pb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
+                      [T]
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-slate-900">{ACADEMY_CONFIG.teacherName}</p>
+                      <p className="text-xs text-slate-500">{ACADEMY_CONFIG.teacherTitle}</p>
+                    </div>
+                  </div>
+                  <span className="text-xs font-semibold px-2.5 py-1 rounded bg-slate-100 text-slate-700">
+                    Lead Faculty
+                  </span>
+                </div>
+
+                <div className="aspect-[4/3] rounded-xl bg-slate-100 border border-dashed border-slate-300 flex flex-col items-center justify-center p-6 text-center">
+                  <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 mb-2">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium text-slate-600">{ACADEMY_CONFIG.teacherPhotoPlaceholder}</span>
+                  <p className="text-xs text-slate-500 mt-1 max-w-xs">
+                    Academic educator photo to be configured
+                  </p>
+                </div>
+
+                <div className="text-xs text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-100 italic">
+                  "{ACADEMY_CONFIG.teacherPhilosophy}"
+                </div>
+
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" className="w-full text-xs" asChild>
+                    <Link to="/about">Teacher Profile</Link>
+                  </Button>
+                  <Button size="sm" className="w-full text-xs" asChild>
+                    <Link to="/contact">Direct Inquiry</Link>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -70,151 +106,202 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Courses */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      {/* Academy Introduction & Pillars */}
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="Featured Courses" />
-          <p className="mb-8 text-muted-foreground max-w-2xl">
-            {ACADEMY_CONFIG.teacherPhilosophy.split('.')[0]}. {ACADEMY_CONFIG.teacherPhilosophy.split('.')[1]}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {COURSES.slice(0, 6).map((course) => (
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs uppercase tracking-wider font-semibold text-primary">Academic Philosophy</span>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 mt-2">
+              Rigorous Academic Guidance, Not Generic Video Lectures
+            </h2>
+            <p className="mt-3 text-base text-slate-600">
+              {ACADEMY_CONFIG.subtext}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-slate-900 mb-2">Syllabus-Targeted Scope</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Direct adherence to official CAIE and Edexcel learning outcomes without superficial distractions or outdated curriculum material.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-.165-.004-.33-.011-.493z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-slate-900 mb-2">Marking Scheme Precision</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Learn exactly how examiners assign method marks, accuracy marks, and explanation marks to ensure full credit on multi-step questions.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a4 4 0 00-4-4h-1m0 0H9m11 0a4 4 0 00-4-4h-1m0 0a4 4 0 00-4 4v2" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-slate-900 mb-2">Dedicated Student Feedback</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Weekly homework review and personalized diagnostic critique so students identify error trends well before mock and final exams.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Courses Section */}
+      <section className="py-16 md:py-24 bg-slate-50 border-y border-slate-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+              <span className="text-xs uppercase tracking-wider font-semibold text-primary">Academic Offerings</span>
+              <h2 className="text-3xl font-bold tracking-tight text-slate-900 mt-1">Available Courses</h2>
+              <p className="text-sm text-slate-600 mt-1">Specialized preparation cohorts currently open for enrollment.</p>
+            </div>
+            <Button variant="outline" asChild>
+              <Link to="/courses">View All Courses ({COURSES.length}) →</Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {COURSES.slice(0, 3).map((course) => (
               <CourseCard key={course.id} course={course} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* How It Works Section */}
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="Why Students Choose Meridian Academy" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 rounded-full bg-primary p-2">
-                <svg className="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l13-13m0 0l-13 13M7 10h4m0 4H3m13 0a9 9 0 11-18 0 9 9 0 0118 0" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-medium text-gray-900">Small Batch Sizes</h3>
-                <p className="text-sm text-muted-foreground">Max 12 students per class for personalized attention</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 rounded-full bg-primary p-2">
-                <svg className="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-medium text-gray-900">Structured Syllabus</h3>
-                <p className="text-sm text-muted-foreground">Topic-by-topic coverage with graded problem sets</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 rounded-full bg-primary p-2">
-                <svg className="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3M12 8V7m5 3v4m-5 3l-3-3m3 3v4m-6-8h.01M8 16h.01M12 16h.01M16 16h.01" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-medium text-gray-900">Past Paper Mastery</h3>
-                <p className="text-sm text-muted-foreground">Timed workshops with marking scheme scrutiny</p>
-              </div>
-            </div>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs uppercase tracking-wider font-semibold text-primary">Application & Study Flow</span>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 mt-1">How It Works</h2>
+            <p className="text-sm text-slate-600 mt-2">
+              From application review to structured class sessions and exam mastery.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* How It Works */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="How It Works" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {HOW_IT_WORKS_STEPS.map((step) => (
-              <div
-                key={step.step}
-                className="flex items-start gap-3 rounded-lg border bg-white p-5 shadow-sm"
-              >
-                <div className="flex-shrink-0 rounded-full bg-primary p-2">
-                  <span className="text-lg font-bold text-white">{step.step}</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-medium text-gray-900">{step.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{step.description}</p>
-                </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {HOW_IT_WORKS_STEPS.slice(0, 4).map((step) => (
+              <div key={step.step} className="rounded-xl border border-slate-200 bg-white p-6 relative">
+                <span className="text-xs font-mono font-bold text-primary px-2.5 py-1 rounded bg-primary/10 inline-block mb-3">
+                  Step {step.step}
+                </span>
+                <h3 className="font-semibold text-slate-900 mb-2">{step.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
+
+          <div className="mt-8 text-center">
+            <Button variant="outline" asChild>
+              <Link to="/how-it-works">Read Full 7-Step Academic Guide →</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Results / Testimonials */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* Teacher Showcase Section */}
+      <section className="py-16 md:py-20 bg-slate-50 border-t border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="Results & Testimonials" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Result cards placeholder */}
-            <div className="rounded-lg border bg-primary/5 p-6 text-center">
-              <p className="text-3xl font-bold text-primary">85%</p>
-              <p className="mt-2 text-sm text-muted-foreground">A*-A Grades</p>
+          <div className="bg-white rounded-2xl border border-slate-200 p-8 md:p-12 shadow-sm grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-4 flex flex-col items-center text-center">
+              <div className="w-36 h-36 rounded-full bg-slate-100 border-2 border-primary/20 flex flex-col items-center justify-center text-slate-500 mb-4 p-2">
+                <span className="text-xs font-semibold text-primary">{ACADEMY_CONFIG.teacherPhotoPlaceholder}</span>
+                <span className="text-[10px] text-slate-400 mt-1">Faculty Photo</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">{ACADEMY_CONFIG.teacherName}</h3>
+              <p className="text-xs text-primary font-medium">{ACADEMY_CONFIG.teacherTitle}</p>
+              <div className="mt-4 text-xs text-slate-500 border-t pt-3 w-full">
+                [TEACHER CREDENTIALS & DEGREES PLACEHOLDER]
+              </div>
             </div>
-            <div className="rounded-lg border bg-primary/5 p-6 text-center">
-              <p className="text-3xl font-bold text-primary">92%</p>
-              <p className="mt-2 text-sm text-muted-foreground">Pass Rate</p>
-            </div>
-            <div className="rounded-lg border bg-primary/5 p-6 text-center">
-              <p className="text-3xl font-bold text-primary">100%</p>
-              <p className="mt-2 text-sm text-muted-foreground">Student Satisfaction</p>
+
+            <div className="lg:col-span-8 space-y-4">
+              <span className="text-xs uppercase tracking-wider font-semibold text-primary">Educator Bio</span>
+              <h4 className="text-2xl font-bold text-slate-900">
+                Direct Mentorship Under an Experienced Specialist
+              </h4>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {ACADEMY_CONFIG.teacherBio}
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {ACADEMY_CONFIG.teacherPhilosophy}
+              </p>
+              <div className="pt-2 flex flex-wrap gap-3">
+                <Button size="sm" asChild>
+                  <Link to="/about">Full Educator Profile & Methodology</Link>
+                </Button>
+                <Button size="sm" variant="outline" asChild>
+                  <Link to="/contact">Schedule Academic Consultation</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Preview */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="FAQ" />
-          <div className="space-y-3">
-            {FAQS.slice(0, 3).map((faq) => (
-              <div
-                key={faq.id}
-                className="rounded-lg border bg-white p-4 hover:bg-accent/5 transition-colors cursor-pointer"
-              >
-                <div className="flex justify-between items-center">
-                  <h3 className="font-medium text-gray-900">{faq.question}</h3>
-                  <svg className="h-4 w-4 text-primary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                </div>
-                <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                  {faq.answer}
-                </p>
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="text-xs uppercase tracking-wider font-semibold text-primary">Common Questions</span>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 mt-1">Frequently Asked Questions</h2>
+            <p className="text-sm text-slate-600 mt-1">Clear answers regarding class schedules, syllabus coverage, and admissions.</p>
+          </div>
+
+          <div className="space-y-4">
+            {FAQS.slice(0, 4).map((faq) => (
+              <div key={faq.id} className="rounded-xl border border-slate-200 p-5 bg-slate-50/50">
+                <h3 className="font-semibold text-slate-900 text-base">{faq.question}</h3>
+                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Button variant="outline" asChild>
+              <Link to="/faq">View All FAQs →</Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-primary-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-              Ready to Excel?
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Join our small batch O & A-Level tuition programs. Limited spots available per batch.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3 justify-center">
-              <Button size="lg" className="px-8 py-3">
-                Apply Now
-              </Button>
-            </div>
+      {/* Call to Action */}
+      <section className="py-16 md:py-20 bg-primary text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <span className="text-xs uppercase tracking-widest font-semibold text-primary-foreground/80">
+            Admissions & Enrollment
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Ready to Begin Your Examination Preparation?
+          </h2>
+          <p className="text-base text-primary-foreground/80 max-w-2xl mx-auto">
+            Class cohorts are strictly limited in size to ensure meaningful student-teacher interaction. Submit your application early for upcoming exam cycles.
+          </p>
+          <div className="pt-2 flex flex-wrap justify-center gap-4">
+            <Button size="lg" variant="secondary" className="rounded-full px-8 text-primary font-semibold" asChild>
+              <Link to="/apply">Submit Application Form</Link>
+            </Button>
+            <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent text-white border-white/30 hover:bg-white/10" asChild>
+              <Link to="/contact">Contact Academic Office</Link>
+            </Button>
           </div>
         </div>
       </section>
+
+      <AcademicFooter />
     </main>
   )
 }
