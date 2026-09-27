@@ -15,8 +15,30 @@ import Contact from "./pages/Contact";
 import Apply from "./pages/Apply";
 import Login from "./pages/Login";
 import StudentDashboard from "./pages/student/Index";
+import StudentCoursePage from "./pages/student/Course";
+import StudentClassesPage from "./pages/student/Classes";
+import StudentAssignmentsPage from "./pages/student/Assignments";
+import StudentResultsPage from "./pages/student/Results";
+import StudentResourcesPage from "./pages/student/Resources";
+import StudentProgressPage from "./pages/student/Progress";
+import StudentProfilePage from "./pages/student/Profile";
 import TeacherDashboard from "./pages/teacher/Index";
+import TeacherStudentsPage from "./pages/teacher/Students";
+import TeacherClassesPage from "./pages/teacher/Classes";
+import TeacherAssignmentsPage from "./pages/teacher/Assignments";
+import TeacherResultsPage from "./pages/teacher/Results";
+import TeacherResourcesPage from "./pages/teacher/Resources";
+import TeacherProgressPage from "./pages/teacher/Progress";
 import AdminDashboard from "./pages/admin/Index";
+import AdminApplicationsPage from "./pages/admin/Applications";
+import AdminStudentsPage from "./pages/admin/Students";
+import AdminCoursesPage from "./pages/admin/Courses";
+import AdminClassesPage from "./pages/admin/Classes";
+import AdminAssignmentsPage from "./pages/admin/Assignments";
+import AdminResultsPage from "./pages/admin/Results";
+import AdminResourcesPage from "./pages/admin/Resources";
+import AdminTestimonialsPage from "./pages/admin/Testimonials";
+import AdminSettingsPage from "./pages/admin/Settings";
 
 const queryClient = new QueryClient();
 
@@ -40,35 +62,35 @@ const App = () => (
           <Route path="/login" element={<Login />} />
 
           {/* Student Routes */}
-          <Route path="/student" element={<StudentDashboard />} />
-          <Route path="/student/course" element={<div>Student Course View</div>} />
-          <Route path="/student/classes" element={<div>Student Classes View</div>} />
-          <Route path="/student/assignments" element={<div>Student Assignments View</div>} />
-          <Route path="/student/results" element={<div>Student Results View</div>} />
-          <Route path="/student/resources" element={<div>Student Resources View</div>} />
-          <Route path="/student/progress" element={<div>Student Progress View</div>} />
-          <Route path="/student/profile" element={<div>Student Profile View</div>} />
+                    <Route path="/student" element={<StudentDashboard />} />
+                    <Route path="/student/course" element={<StudentCoursePage />} />
+                    <Route path="/student/classes" element={<StudentClassesPage />} />
+                    <Route path="/student/assignments" element={<StudentAssignmentsPage />} />
+                    <Route path="/student/results" element={<StudentResultsPage />} />
+                    <Route path="/student/resources" element={<StudentResourcesPage />} />
+                    <Route path="/student/progress" element={<StudentProgressPage />} />
+                    <Route path="/student/profile" element={<StudentProfilePage />} />
 
           {/* Teacher Routes */}
-          <Route path="/teacher" element={<TeacherDashboard />} />
-          <Route path="/teacher/students" element={<div>Teacher Students View</div>} />
-          <Route path="/teacher/classes" element={<div>Teacher Classes View</div>} />
-          <Route path="/teacher/assignments" element={<div>Teacher Assignments View</div>} />
-          <Route path="/teacher/results" element={<div>Teacher Results View</div>} />
-          <Route path="/teacher/resources" element={<div>Teacher Resources View</div>} />
-          <Route path="/teacher/progress" element={<div>Teacher Progress View</div>} />
+                    <Route path="/teacher" element={<TeacherDashboard />} />
+                    <Route path="/teacher/students" element={<TeacherStudentsPage />} />
+                    <Route path="/teacher/classes" element={<TeacherClassesPage />} />
+                    <Route path="/teacher/assignments" element={<TeacherAssignmentsPage />} />
+                    <Route path="/teacher/results" element={<TeacherResultsPage />} />
+                    <Route path="/teacher/resources" element={<TeacherResourcesPage />} />
+                    <Route path="/teacher/progress" element={<TeacherProgressPage />} />
 
           {/* Admin Routes */}
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/applications" element={<div>Admin Applications View</div>} />
-          <Route path="/admin/students" element={<div>Admin Students View</div>} />
-          <Route path="/admin/courses" element={<div>Admin Courses View</div>} />
-          <Route path="/admin/classes" element={<div>Admin Classes View</div>} />
-          <Route path="/admin/assignments" element={<div>Admin Assignments View</div>} />
-          <Route path="/admin/results" element={<div>Admin Results View</div>} />
-          <Route path="/admin/resources" element={<div>Admin Resources View</div>} />
-          <Route path="/admin/testimonials" element={<div>Admin Testimonials View</div>} />
-          <Route path="/admin/settings" element={<div>Admin Settings View</div>} />
+                    <Route path="/admin" element={<AdminDashboard />} />
+                    <Route path="/admin/applications" element={<AdminApplicationsPage />} />
+                    <Route path="/admin/students" element={<AdminStudentsPage />} />
+                    <Route path="/admin/courses" element={<AdminCoursesPage />} />
+                    <Route path="/admin/classes" element={<AdminClassesPage />} />
+                    <Route path="/admin/assignments" element={<AdminAssignmentsPage />} />
+                    <Route path="/admin/results" element={<AdminResultsPage />} />
+                    <Route path="/admin/resources" element={<AdminResourcesPage />} />
+                    <Route path="/admin/testimonials" element={<AdminTestimonialsPage />} />
+                    <Route path="/admin/settings" element={<AdminSettingsPage />} />
 
           {/* Catch-all for 404 */}
           <Route path="*" element={<NotFound />} />
